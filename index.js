@@ -1,11 +1,10 @@
 import "bootstrap";
 import "bootstrap-css";
-import uniqid from "uniqid";
 import { Editor } from "./src/utils/editor";
 import { asyncDownloadFileDocx } from "./src/utils/downloadFileDocx";
 import { asyncDocxToJson } from "./src/utils/docxToJson";
 import { documentCreator } from "./src/utils/documentCreator";
-import myCv from "./src/docxFiles/cv_romesh.docx";
+import myCv from "./src/docxFiles/tex.docx";
 
 const btnSaves = document.getElementById("btnExport");
 const btnReset = document.getElementById("btnReset");
