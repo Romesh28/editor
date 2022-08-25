@@ -1,6 +1,7 @@
 import EditorJS from "@editorjs/editorjs";
 import Header from "@editorjs/header";
 import List from "@editorjs/list";
+import {Paragraph} from "docx";
 
 export const Editor = (data) =>
   new EditorJS({
@@ -16,6 +17,8 @@ export const Editor = (data) =>
       },
     },
     data: {
-      blocks: data,
+      blocks: [
+
+      ],
     },
   });

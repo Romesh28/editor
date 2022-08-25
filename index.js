@@ -4,7 +4,6 @@ import { Editor } from "./src/utils/editor";
 import { asyncDownloadFileDocx } from "./src/utils/downloadFileDocx";
 import { asyncDocxToJson } from "./src/utils/docxToJson";
 import { documentCreator } from "./src/utils/documentCreator";
-import myCv from "./src/docxFiles/tex.docx";
 
 const btnSaves = document.getElementById("btnExport");
 const btnReset = document.getElementById("btnReset");
@@ -23,10 +22,15 @@ const editorDownloadFile = async () => {
   }
 };
 
-async function onEditorSave() {
+async function onEditorSave(e) {
   try {
-    const json = (await asyncDocxToJson(myCv)).map(({ children }) => children);
-    console.log(json);
+    const json = await asyncDocxToJson(e.target.files[0]);
+    console.log(json)
+    /// {
+    //  type: "header",
+    //  data: {text:"string",level}
+    // }
+
   } catch (e) {
     console.log(e);
   }
@@ -34,4 +38,4 @@ async function onEditorSave() {
 
 btnSaves.addEventListener("click", editorDownloadFile); // при нажатии на кнопку вызываем функцию которая будет скачать docx документ
 btnReset.addEventListener("click", () => editor.clear()); // при нажатии на кнопку очистить вызываем функцию которая будет очищать редактор
-btnImport.addEventListener("click", onEditorSave);
+btnImport.addEventListener("change", onEditorSave);
